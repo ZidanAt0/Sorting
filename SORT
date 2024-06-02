@@ -116,3 +116,12 @@ void quickSort(int arr[], int low, int high) {
         quickSort(arr, pi + 1, high);
     }
 }
+
+// Fungsi untuk mengukur waktu eksekusi
+void measureTime(void (*sortFunc)(int[], int), int arr[], int n) {
+    auto start = high_resolution_clock::now();
+    sortFunc(arr, n);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout << "Time taken: " << duration.count() << " microseconds" << endl;
+}
